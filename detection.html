@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Waste Detection Studio | Smart Waste Segregation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; font-family: 'Outfit';">AI Vision Model Processing...</h3>
+        <p style="color: #cbd5e1; font-size: 0.95rem;">Resizing 224x224 &bull; Normalizing Pixels &bull; OpenCV Feature Analysis</p>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-recycle"></i></div>
+                <span>EcoSegregate</span> AI
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/detection" class="active">Detection Studio</a></li>
+                <li><a href="/#dashboard">Dashboard</a></li>
+                <li><a href="/#categories">Waste Categories</a></li>
+            </ul>
+            <a href="/" class="btn btn-outline"><i class="fa-solid fa-house"></i> Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Main Detection Studio Section -->
+    <section class="detection-section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">AI Waste Detection Studio</h1>
+                <p class="section-subtitle">Upload a waste item image or use your device camera to classify plastic, paper, glass, metal, and organic waste.</p>
+            </div>
+
+            <!-- Studio Card Container -->
+            <div class="studio-card">
+                <!-- Studio Tabs -->
+                <div class="studio-tabs">
+                    <button class="tab-btn active" data-tab="upload-tab">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload Image File
+                    </button>
+                    <button class="tab-btn" data-tab="camera-tab">
+                        <i class="fa-solid fa-camera"></i> Live Camera Detection
+                    </button>
+                </div>
+
+                <!-- Tab Content Panes -->
+                <div class="tab-content">
+                    
+                    <!-- TAB 1: File Upload Pane -->
+                    <div id="upload-tab" class="tab-pane active">
+                        <!-- Dropzone Box -->
+                        <div id="dropzone" class="dropzone">
+                            <i class="fa-solid fa-cloud-arrow-up dropzone-icon"></i>
+                            <h3 class="dropzone-title">Drag & Drop Waste Image Here</h3>
+                            <p class="dropzone-hint">Supports JPG, PNG, WEBP files up to 10MB</p>
+                            <button type="button" class="btn btn-secondary btn-sm">
+                                <i class="fa-solid fa-folder-open"></i> Browse Files
+                            </button>
+                            <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp,image/bmp">
+                        </div>
+
+                        <!-- Image Preview Box -->
+                        <div id="previewWrapper" class="preview-wrapper">
+                            <div class="preview-box">
+                                <img id="imagePreview" src="" alt="Waste Image Preview">
+                                <button id="clearPreviewBtn" class="clear-btn" title="Remove Image">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                            <button id="analyzeUploadBtn" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1.05rem;">
+                                <i class="fa-solid fa-microchip"></i> Classify Waste Item
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: Live Webcam Pane -->
+                    <div id="camera-tab" class="tab-pane">
+                        <div class="camera-container">
+                            <div class="camera-viewport">
+                                <video id="videoFeed" autoplay playsinline style="display: none;"></video>
+                                <canvas id="capturedCanvas"></canvas>
+
+                                <div id="cameraPlaceholder" class="camera-placeholder">
+                                    <i class="fa-solid fa-video-slash"></i>
+                                    <p>Camera stream is currently inactive.</p>
+                                    <span style="font-size: 0.85rem; color: #94a3b8;">Click "Start Camera" below to begin live scanning.</span>
+                                </div>
+                            </div>
+
+                            <div class="camera-controls">
+                                <button id="startCamBtn" class="btn btn-primary">
+                                    <i class="fa-solid fa-play"></i> Start Camera
+                                </button>
+                                <button id="stopCamBtn" class="btn btn-outline" style="display: none;">
+                                    <i class="fa-solid fa-stop"></i> Stop Camera
+                                </button>
+                                <button id="flipCamBtn" class="btn btn-secondary">
+                                    <i class="fa-solid fa-camera-rotate"></i> Switch Camera
+                                </button>
+                                <button id="captureCamBtn" class="btn btn-primary" disabled>
+                                    <i class="fa-solid fa-circle-dot"></i> Capture & Classify
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-bottom">
+            &copy; 2026 Smart Plastic and Waste Segregation System. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

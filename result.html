@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Classification Result | Smart Waste Segregation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-recycle"></i></div>
+                <span>EcoSegregate</span> AI
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/detection">Detection Studio</a></li>
+                <li><a href="/#dashboard">Dashboard</a></li>
+                <li><a href="/#categories">Waste Categories</a></li>
+            </ul>
+            <a href="/detection" class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Detection</a>
+        </div>
+    </nav>
+
+    <!-- Result Content Section -->
+    <section class="detection-section" style="padding-top: 2rem;">
+        <div class="container" id="resultContainer">
+            <div style="margin-bottom: 1.5rem;">
+                <a href="/detection" class="btn btn-outline btn-sm">
+                    <i class="fa-solid fa-arrow-left"></i> Analyze Another Image
+                </a>
+            </div>
+
+            <!-- Result Card Grid -->
+            <div class="result-card">
+                <div class="result-grid">
+                    
+                    <!-- Uploaded Image View -->
+                    <div class="result-img-box">
+                        <img id="resultImage" src="" alt="Analyzed Waste Item">
+                    </div>
+
+                    <!-- AI Result Details -->
+                    <div>
+                        <!-- Category Pill Badge -->
+                        <span id="categoryBadge" class="detected-badge" style="background: #dbeafe; color: #1e40af;">
+                            Plastic Waste
+                        </span>
+
+                        <h1 id="detectedType" class="detected-title">Plastic Bottle</h1>
+                        <p class="detected-meta"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> Successfully Classified by Computer Vision AI Engine</p>
+
+                        <!-- Confidence Meter Gauge -->
+                        <div class="confidence-box">
+                            <div class="confidence-header">
+                                <span>AI Classification Confidence</span>
+                                <span id="confidenceText" style="color: #059669; font-weight: 700;">96.4%</span>
+                            </div>
+                            <div class="confidence-bar-bg">
+                                <div id="confidenceFill" class="confidence-bar-fill" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Recommended Recycling Bin -->
+                        <div class="bin-recommendation">
+                            <i class="fa-solid fa-dumpster bin-icon"></i>
+                            <div>
+                                <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: #047857;">Recommended Recycling Bin</span>
+                                <div id="binTitle" class="bin-title">Plastic Recycling Bin</div>
+                                <div class="bin-sub">Color Code: <strong style="color: #0f172a;">Blue / Yellow Bin</strong></div>
+                            </div>
+                        </div>
+
+                        <!-- Step-by-Step Eco Disposal Instruction -->
+                        <div class="instruction-box">
+                            <div class="instruction-title"><i class="fa-solid fa-lightbulb" style="color: #f59e0b;"></i> Disposal & Recycling Guide</div>
+                            <p id="binInstruction" style="font-size: 0.9rem; color: #475569;">
+                                Please rinse out any residual liquids or food. Flatten the plastic bottle to conserve bin space before placing it in the designated recycling bin.
+                            </p>
+                        </div>
+
+                        <!-- Additional Metrics -->
+                        <div style="display: flex; gap: 1.5rem; align-items: center; margin-bottom: 2rem;">
+                            <div>
+                                <span style="font-size: 0.8rem; color: #64748b;">Decomposition Time</span>
+                                <div id="decompTime" style="font-weight: 700; font-size: 1rem; color: #0f172a;">450 Years</div>
+                            </div>
+                            <div style="border-left: 1px solid #cbd5e1; padding-left: 1.5rem;">
+                                <span style="font-size: 0.8rem; color: #64748b;">Status</span>
+                                <div style="font-weight: 700; font-size: 1rem; color: #10b981;">Recyclable</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="/detection" class="btn btn-primary">
+                                <i class="fa-solid fa-rotate"></i> Detect Another Item
+                            </a>
+                            <a href="/#dashboard" class="btn btn-secondary">
+                                <i class="fa-solid fa-chart-simple"></i> View Dashboard Stats
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-bottom">
+            &copy; 2026 Smart Plastic and Waste Segregation System. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

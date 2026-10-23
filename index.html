@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Plastic & Waste Segregation System | AI Powered Recycling</title>
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="College Engineering Project: Smart web-based waste segregation system using camera and AI-based image classification to automatically identify plastic, paper, glass, metal, and organic waste.">
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-recycle"></i></div>
+                <span>EcoSegregate</span> AI
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/detection">Detection Studio</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#categories">Waste Categories</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+            </ul>
+            <a href="/detection" class="btn btn-primary"><i class="fa-solid fa-camera"></i> Start Detection</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <div class="badge-pill">
+                    <i class="fa-solid fa-leaf"></i> College Engineering Capstone Project
+                </div>
+                <h1 class="hero-title">
+                    Smart Plastic & <br>
+                    <span class="gradient-text">Waste Segregation</span> System
+                </h1>
+                <p class="hero-desc">
+                    An intelligent AI-powered computer vision system designed to classify plastic, paper, glass, metal, and organic waste in real time for automated eco-friendly recycling.
+                </p>
+                <div class="hero-actions">
+                    <a href="/detection" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Start AI Detection</a>
+                    <a href="#categories" class="btn btn-secondary"><i class="fa-solid fa-book-open"></i> Explore Categories</a>
+                </div>
+            </div>
+
+            <!-- Hero Interactive Preview Visual -->
+            <div class="hero-visual">
+                <div class="hero-card-preview">
+                    <div class="scanner-demo-box">
+                        <div class="scanner-laser"></div>
+                        <div style="text-align: center; color: #475569;">
+                            <i class="fa-solid fa-bottle-water" style="font-size: 4rem; color: #10b981; margin-bottom: 0.5rem;"></i>
+                            <div style="font-weight: 700; font-size: 1.1rem; color: #0f172a;">Plastic Bottle</div>
+                            <span style="display: inline-block; padding: 0.25rem 0.75rem; background: #dbeafe; color: #1e40af; border-radius: 99px; font-size: 0.8rem; font-weight: 600; margin-top: 0.4rem;">
+                                Confidence: 96.4%
+                            </span>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #e2e8f0;">
+                        <div>
+                            <span style="font-size: 0.8rem; color: #64748b;">Recommended Bin</span>
+                            <div style="font-weight: 700; color: #059669; font-size: 0.95rem;">Plastic Recycling Bin</div>
+                        </div>
+                        <div style="width: 14px; height: 14px; border-radius: 50%; background: #3b82f6; box-shadow: 0 0 10px #3b82f6;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Dashboard Banner -->
+    <section id="dashboard" class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num" id="statTotalAnalyzed">142</div>
+                    <div class="stat-label">Total Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="statPlastic">58</div>
+                    <div class="stat-label">Plastic Items</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="statPaper">27</div>
+                    <div class="stat-label">Paper & Cards</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="statGlass">18</div>
+                    <div class="stat-label">Glass</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="statMetal">12</div>
+                    <div class="stat-label">Metal Cans</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num" id="statOrganic">9</div>
+                    <div class="stat-label">Organic Waste</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waste Categories Educational Section -->
+    <section id="categories" class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recognized Waste Categories</h2>
+                <p class="section-subtitle">Our deep learning model classifies municipal waste into distinct categories to facilitate proper segregation.</p>
+            </div>
+
+            <div class="categories-grid">
+                <!-- Plastic Card -->
+                <div class="cat-card">
+                    <div class="cat-icon-badge" style="background: #dbeafe; color: #1d4ed8;">
+                        <i class="fa-solid fa-bottle-water"></i>
+                    </div>
+                    <h3 class="cat-title">Plastic Waste</h3>
+                    <p class="cat-desc">Includes Plastic Bottles, Polythene Bags, Food Containers, and Packaging Straws.</p>
+                    <div class="decomp-tag"><i class="fa-regular fa-clock"></i> Decomposes in 450 Years</div>
+                </div>
+
+                <!-- Paper Card -->
+                <div class="cat-card">
+                    <div class="cat-icon-badge" style="background: #e0e7ff; color: #3730a3;">
+                        <i class="fa-solid fa-newspaper"></i>
+                    </div>
+                    <h3 class="cat-title">Paper Waste</h3>
+                    <p class="cat-desc">Includes Office Paper, Newspapers, Magazines, Paper Bags, and Books.</p>
+                    <div class="decomp-tag"><i class="fa-regular fa-clock"></i> Decomposes in 2 - 6 Weeks</div>
+                </div>
+
+                <!-- Cardboard Card -->
+                <div class="cat-card">
+                    <div class="cat-icon-badge" style="background: #fef3c7; color: #92400e;">
+                        <i class="fa-solid fa-box-archive"></i>
+                    </div>
+                    <h3 class="cat-title">Cardboard</h3>
+                    <p class="cat-desc">Corrugated shipping boxes, cereal boxes, egg cartons, and brown packaging.</p>
+                    <div class="decomp-tag"><i class="fa-regular fa-clock"></i> Decomposes in 2 Months</div>
+                </div>
+
+                <!-- Glass Card -->
+                <div class="cat-card">
+                    <div class="cat-icon-badge" style="background: #d1fae5; color: #065f46;">
+                        <i class="fa-solid fa-wine-glass"></i>
+                    </div>
+                    <h3 class="cat-title">Glass Waste</h3>
+                    <p class="cat-desc">Clear & colored glass bottles, condiment jars, beverage containers.</p>
+                    <div class="decomp-tag"><i class="fa-regular fa-clock"></i> Decomposes in 1M+ Years</div>
+                </div>
+
+                <!-- Metal Card -->
+                <div class="cat-card">
+                    <div class="cat-icon-badge" style="background: #f3f4f6; color: #1f2937;">
+                        <i class="fa-solid fa-can-food"></i>
+                    </div>
+                    <h3 class="cat-title">Metal Cans</h3>
+                    <p class="cat-desc">Aluminum soda cans, tin food cans, metal lids, foil packaging, scrap pieces.</p>
+                    <div class="decomp-tag"><i class="fa-regular fa-clock"></i> Decomposes in 50 - 200 Years</div>
+                </div>
+
+                <!-- Organic Card -->
+                <div class="cat-card">
+                    <div class="cat-icon-badge" style="background: #ecfdf5; color: #3f6212;">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <h3 class="cat-title">Organic Waste</h3>
+                    <p class="cat-desc">Food leftovers, fruit peels, vegetable scraps, coffee grounds, and garden leaves.</p>
+                    <div class="decomp-tag"><i class="fa-regular fa-clock"></i> Decomposes in 1 - 6 Months</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Benefits Section -->
+    <section id="benefits" style="padding: 5rem 0; background: var(--bg-main);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Smart Waste Segregation?</h2>
+                <p class="section-subtitle">Automated computer vision segregation reduces landfill dumping and boosts municipal recycling efficiency.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: var(--shadow-md);">
+                    <i class="fa-solid fa-earth-americas" style="font-size: 2.5rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem;">Environmental Protection</h3>
+                    <p style="color: #64748b; font-size: 0.95rem;">Prevents toxic plastic contamination in oceans and preserves wildlife natural habitats.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: var(--shadow-md);">
+                    <i class="fa-solid fa-bolt" style="font-size: 2.5rem; color: #3b82f6; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem;">Energy Conservation</h3>
+                    <p style="color: #64748b; font-size: 0.95rem;">Recycling aluminum cans saves up to 95% of energy required to mine raw bauxite ore.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: var(--shadow-md);">
+                    <i class="fa-solid fa-microchip" style="font-size: 2.5rem; color: #8b5cf6; margin-bottom: 1rem;"></i>
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem;">AI & Vision Integration</h3>
+                    <p style="color: #64748b; font-size: 0.95rem;">Employs OpenCV preprocessing & MobileNetV2 Deep Learning for high-speed automated detection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <div class="footer-brand"><i class="fa-solid fa-recycle"></i> EcoSegregate AI</div>
+                <p class="footer-desc">Smart Plastic and Waste Segregation System developed for Engineering Capstone Demonstration using OpenCV, TensorFlow, Flask, HTML5, CSS3, and JavaScript.</p>
+            </div>
+            <div>
+                <h4 class="footer-links-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/detection">Detection Studio</a></li>
+                    <li><a href="#dashboard">Live Dashboard</a></li>
+                    <li><a href="#categories">Waste Categories</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-links-title">Tech Stack</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Python & Flask</a></li>
+                    <li><a href="#">OpenCV Image Processing</a></li>
+                    <li><a href="#">TensorFlow / Keras MobileNet</a></li>
+                    <li><a href="#">Vanilla CSS & JS</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Smart Plastic and Waste Segregation System. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
